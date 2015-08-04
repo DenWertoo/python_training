@@ -17,6 +17,7 @@ class test_add_group(unittest.TestCase):
     
     def test_add_group(self):
         wd = self.wd
+<<<<<<< HEAD
         self.open_home_page(wd)
         self.login(wd, username="admin", password="secret")
         self.open_groups_page(wd)
@@ -45,16 +46,39 @@ class test_add_group(unittest.TestCase):
         # fill group form
         wd.find_element_by_css_selector("body").click()
         wd.find_element_by_id("content").click()
+=======
+        wd.get("http://localhost/addressbook/")
+        wd.find_element_by_id("LoginForm").click()
+        wd.find_element_by_name("user").click()
+        wd.find_element_by_name("user").clear()
+        wd.find_element_by_name("user").send_keys("admin")
+        wd.find_element_by_name("pass").click()
+        wd.find_element_by_name("pass").clear()
+        wd.find_element_by_name("pass").send_keys("secret")
+        wd.find_element_by_css_selector("input[type=\"submit\"]").click()
+        wd.find_element_by_link_text("groups").click()
+        wd.find_element_by_name("new").click()
+        wd.find_element_by_css_selector("#content > form").click()
+>>>>>>> origin/master
         wd.find_element_by_name("group_name").click()
         wd.find_element_by_name("group_name").clear()
         wd.find_element_by_name("group_name").send_keys(group.name)
         wd.find_element_by_name("group_header").click()
         wd.find_element_by_name("group_header").clear()
+<<<<<<< HEAD
         wd.find_element_by_name("group_header").send_keys(group.header)
         wd.find_element_by_name("group_footer").click()
         wd.find_element_by_name("group_footer").clear()
         wd.find_element_by_name("group_footer").send_keys(group.footer)
         # submit group creation
+=======
+        wd.find_element_by_name("group_header").send_keys("23f23f23")
+        wd.find_element_by_name("group_footer").click()
+        wd.find_element_by_name("group_footer").send_keys("\\51")
+        wd.find_element_by_name("group_footer").click()
+        wd.find_element_by_name("group_footer").clear()
+        wd.find_element_by_name("group_footer").send_keys("23f23f23f")
+>>>>>>> origin/master
         wd.find_element_by_name("submit").click()
 
     def open_groups_page(self, wd):
